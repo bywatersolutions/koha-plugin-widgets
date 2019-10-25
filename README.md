@@ -2,6 +2,8 @@
 
 This plugin takes a slip/notice and a report id and outputs JSON with HTML embedded in it. That HTML can then be added to the DOM of a page via JavaScript to create a widget!
 
+*NOTICE:* This plugin is alpha-level and implements no caching mechanisms.
+
 ## Usage
 
 The JSON can be accessed via the path `/api/v1/contrib/widgets/widget/<notice module>/<notice code>/<report id>`
@@ -13,7 +15,8 @@ The results of the report are passed to the template as the variable `rows`.
 Here is an example:
 
 Report Query: `SELECT * FROM borrowers`
-Notice: ```
+Notice: 
+```
 <h1>Test Widget</h1>
 <ul>
     [% FOREACH r IN rows %]
