@@ -26,3 +26,12 @@ Notice:
 ```
 
 The notice contents are always pulled from the *print* version of the notice.
+
+As an example, the following jQuery in _intranetuserjs_ will load the widget and place it after the *About Koha* button on the Koha home page in the staff interface:
+```
+$(document).ready(function() {
+  $.getJSON("/api/v1/contrib/widgets/widget/catalogue/KYLE/1", function(data) {
+    $(data.html).insertAfter("a.icon_koha");
+  });
+});
+```
