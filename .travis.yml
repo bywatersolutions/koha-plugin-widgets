@@ -10,7 +10,9 @@ install:
 
 before_script:
   - npm install gulp-cli
+  - npm install gulp
   - npm install -g gulp-cli
+  - npm install -g gulp
   - npm install jsonfile
 
 script:
