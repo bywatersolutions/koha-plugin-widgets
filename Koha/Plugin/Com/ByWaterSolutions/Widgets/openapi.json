@@ -34,6 +34,13 @@
                "description":"Cache expiration in seconds",
                "required":false,
                "type":"integer"
+            },
+            {
+               "name":"sql_params",
+               "in":"query",
+               "description":"Parameters for SQL report",
+               "required":false,
+               "type":"string"
             }
          ],
          "produces":[

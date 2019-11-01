@@ -42,6 +42,9 @@ sub render_widget {
     my $code       = $c->validation->param('code');
     my $report_id  = $c->validation->param('report_id');
     my $expiration = $c->validation->param('expiration');
+    my $sql_params = $c->validation->param('sql_params');
+
+    my @sql_params = split( '!@!', $sql_params );
 
     my $default_expiration = 60 * 15; # 15 minutes
     my $expiration_seconds = $expiration // $default_expiration;
@@ -64,7 +67,6 @@ sub render_widget {
         my $sql    = $report->savedsql;
         my $offset = 0;
         my $limit  = C4::Context->preference("SvcMaxReportRows") || 10;
-        my @sql_params;    #TODO: Add support for sql params
         my ( $sth, $errors ) =
           execute_query( $sql, $offset, $limit, \@sql_params, $report_id );
         my $rows = $sth->fetchall_arrayref( {} );
