@@ -34,9 +34,13 @@ $(document).ready(function() {
 });
 ```
 
+### Cache expiration
+
 By default, each rendered widget is cached for 15 minutes.
 If you would like to change the length of time a widget is cached, just append a GET parameter named `expiration` with your custom cache expiration time.
 Expiration is defined in seconds, so a URL with a 5 minute expiration would looke like `/api/v1/contrib/widgets/widget/catalogue/KYLE/1?expiration=300`.
+
+### Report SQL paramters
 
 If your report uses parameters, you can include them in a GET parameter as well, `sql_params`.
 If your report uses one paramter, you can send that parameter like `/api/v1/contrib/widgets/widget/catalogue/KYLE/1?expiration=300&sql_params=PARAM1`.
