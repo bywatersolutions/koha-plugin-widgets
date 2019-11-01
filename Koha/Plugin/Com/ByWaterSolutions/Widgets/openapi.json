@@ -2,7 +2,7 @@
    "/widget/{module}/{code}/{report_id}":{
       "get":{
          "x-mojo-to":"Com::ByWaterSolutions::Widgets::WidgetsController#render_widget",
-         "operationId":"bpmPatronsCheckList",
+         "operationId":"bpwGetWidget",
          "tags":[
             "patrons"
          ],
