@@ -1,50 +1,54 @@
 {
-  "/widget/{module}/{code}/{report_id}": {
-    "get": {
-      "x-mojo-to": "Com::ByWaterSolutions::Widgets::WidgetsController#render_widget",
-      "operationId": "bpmPatronsCheckList",
-      "tags": ["patrons"],
-      "parameters": [{
-        "name": "module",
-        "in": "path",
-        "description": "Notice module",
-        "required": true,
-        "type": "string"
-      },
-      {
-        "name": "code",
-        "in": "path",
-        "description": "Notice code",
-        "required": true,
-        "type": "string"
-      },
-      {
-        "name": "report_id",
-        "in": "path",
-        "description": "Report ID",
-        "required": true,
-        "type": "integer"
-      }],
-      "produces": [
-        "application/json"
-      ],
-      "responses": {
-        "200": {
-          "description": "Hash of data in JSON"
-        },
-        "404": {
-          "description": "An error occured",
-          "schema": {
-              "type": "object",
-                "properties": {
-                  "error": {
-                    "description": "An explanation for the error",
-                    "type": "string"
+   "/widget/{module}/{code}/{report_id}":{
+      "get":{
+         "x-mojo-to":"Com::ByWaterSolutions::Widgets::WidgetsController#render_widget",
+         "operationId":"bpmPatronsCheckList",
+         "tags":[
+            "patrons"
+         ],
+         "parameters":[
+            {
+               "name":"module",
+               "in":"path",
+               "description":"Notice module",
+               "required":true,
+               "type":"string"
+            },
+            {
+               "name":"code",
+               "in":"path",
+               "description":"Notice code",
+               "required":true,
+               "type":"string"
+            },
+            {
+               "name":"report_id",
+               "in":"path",
+               "description":"Report ID",
+               "required":true,
+               "type":"integer"
+            }
+         ],
+         "produces":[
+            "application/json"
+         ],
+         "responses":{
+            "200":{
+               "description":"Hash of data in JSON"
+            },
+            "404":{
+               "description":"An error occured",
+               "schema":{
+                  "type":"object",
+                  "properties":{
+                     "error":{
+                        "description":"An explanation for the error",
+                        "type":"string"
+                     }
                   }
-                }
-          }
-        }
+               }
+            }
+         }
       }
-    }
-  }
+   }
 }
