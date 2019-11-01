@@ -1,7 +1,7 @@
 {
   "name": "koha-plugin-widgets",
-  "version": "1.0.8",
-  "previous_version": "1.0.7",
+  "version": "1.0.9",
+  "previous_version": "1.0.8",
   "description": "Koha Widgets Plugin",
   "devDependencies": {
     "gulp": "^3.9.1",
