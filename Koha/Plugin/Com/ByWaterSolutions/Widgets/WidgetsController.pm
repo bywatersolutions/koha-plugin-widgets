@@ -73,8 +73,7 @@ sub render_widget {
         $tt->process( \$tt_markup, $vars, \$output );
 
         if ($cache_active) {
-            $cache->set_in_cache( $cache_key, $rendered_widget,
-                { expiry => $report_rec->cache_expiry } );
+            $cache->set_in_cache( $cache_key, $output, { expiry => $expiration_seconds } );
         }
     }
     return $c->render( status => 200, openapi => { widget => $output } );
