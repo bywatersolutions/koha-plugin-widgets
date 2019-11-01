@@ -27,6 +27,13 @@
                "description":"Report ID",
                "required":true,
                "type":"integer"
+            },
+            {
+               "name":"expiration",
+               "in":"query",
+               "description":"Cache expiration in seconds",
+               "required":false,
+               "type":"integer"
             }
          ],
          "produces":[

@@ -38,11 +38,13 @@ use Koha::Reports;
 sub render_widget {
     my $c = shift->openapi->valid_input or return;
 
-    my $module    = $c->validation->param('module');
-    my $code      = $c->validation->param('code');
-    my $report_id = $c->validation->param('report_id');
+    my $module     = $c->validation->param('module');
+    my $code       = $c->validation->param('code');
+    my $report_id  = $c->validation->param('report_id');
+    my $expiration = $c->validation->param('expiration');
 
-    my $expiration_seconds = 60 * 15;    #TODO: Make a parameter with a default
+    my $default_expiration = 60 * 15; # 15 minutes
+    my $expiration_seconds = $expiration // $default_expiration;
 
     my $output;
 
