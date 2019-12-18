@@ -41,6 +41,13 @@
                "description":"Parameters for SQL report",
                "required":false,
                "type":"string"
+            },
+            {
+               "name":"limit",
+               "in":"query",
+               "description":"Max rows to return from report results",
+               "required":false,
+               "type":"integer"
             }
          ],
          "produces":[

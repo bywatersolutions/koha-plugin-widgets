@@ -43,6 +43,7 @@ sub render_widget {
     my $report_id  = $c->validation->param('report_id');
     my $expiration = $c->validation->param('expiration');
     my $sql_params = $c->validation->param('sql_params');
+    my $limit      = $c->validation->param('limit');
 
     my @sql_params = split( '!@!', $sql_params );
 
@@ -63,10 +64,11 @@ sub render_widget {
         my $letter = C4::Letters::getletter( $module, $code, undef, 'print' );
         my $tt_markup = $letter->{content};
 
+        $limit ||= C4::Context->preference("SvcMaxReportRows") || 10;
+
         my $report = Koha::Reports->find($report_id);
         my $sql    = $report->savedsql;
         my $offset = 0;
-        my $limit  = C4::Context->preference("SvcMaxReportRows") || 10;
         my ( $sth, $errors ) =
           execute_query( $sql, $offset, $limit, \@sql_params, $report_id );
         my $rows = $sth->fetchall_arrayref( {} );
